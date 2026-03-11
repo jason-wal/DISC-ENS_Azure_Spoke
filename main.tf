@@ -92,14 +92,14 @@ resource "azurerm_route" "v6_default" {
 
 resource "azurerm_subnet" "this" {
   for_each = var.spoke_subnets
-    name                              = each.key
-    resource_group_name               = azurerm_resource_group.spoke_rsg.name
-    virtual_network_name              = azurerm_virtual_network.this.name
-    address_prefixes                  = each.value["Subs"] 
-    service_endpoints                 = contains( each.value["Sub_Svc_Endpoints"], "null" ) ? null : each.value["Sub_Svc_Endpoints"]
-    private_endpoint_network_policies = each.value["priv_endpt"] 
-    default_outbound_access_enabled   = each.value["default_outbound_access_enabled"]  
-    private_link_service_network_policies_enabled = each.value["priv_link_net_pols"] 
+    name                                            = each.key
+    resource_group_name                             = azurerm_resource_group.spoke_rsg.name
+    virtual_network_name                            = azurerm_virtual_network.this.name
+    address_prefixes                                = each.value["Subs"] 
+    service_endpoints                               = contains( each.value["Sub_Svc_Endpoints"], "null" ) ? null : each.value["Sub_Svc_Endpoints"]
+    private_endpoint_network_policies               = each.value["priv_endpt"] 
+    default_outbound_access_enabled                 = each.value["default_outbound_access_enabled"]  
+    private_link_service_network_policies_enabled   = each.value["priv_link_net_pols"] 
 
 
     dynamic "delegation" {
