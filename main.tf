@@ -84,6 +84,25 @@ resource "azurerm_route" "v6_default" {
 
 
 
+/*
+
+resource "azurerm_route" "v4_hub_bastion" {
+  for_each = var.hub_routes_v4
+    name                    = each.key
+    resource_group_name     = azurerm_resource_group.spoke_rsg.name
+    route_table_name        = azurerm_route_table.this.name
+    address_prefix          = each.value
+    next_hop_type           = "VnetLocal" 
+
+}
+
+*/
+
+
+
+
+
+
 
 #---------------------------------------------------------
 # Create Subnets

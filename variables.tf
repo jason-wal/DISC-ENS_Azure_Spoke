@@ -35,6 +35,17 @@ variable "hub_routes_v6" {
     type = map(string)
 }
 
+/*
+variable "hub_bastion_v4" {
+    type = string
+    description = "Bastion Subnet in Hub v4"
+}
+
+variable "hub_bastion_v6" {
+    type = string
+    description = "Bastion Subnet in Hub v6"
+}
+*/
 
 variable "spoke_cidrs_v4" {
     type        = map(string)
