@@ -53,6 +53,16 @@ resource "azurerm_route" "v4_default" {
     next_hop_in_ip_address  = var.gw_ip_v4
 }
 
+resource "azurerm_route" "v6_default" {
+    name                    = "v6_Default"
+    resource_group_name     = azurerm_resource_group.spoke_rsg.name
+    route_table_name        = azurerm_route_table.this.name
+    address_prefix          = "::/0"
+    next_hop_type           = "VirtualAppliance" 
+    next_hop_in_ip_address  = var.gw_ip_v6
+}
+
+/*
 resource "azurerm_route" "v4_hub_routes" {
   for_each = var.hub_routes_v4
     name                    = each.key
@@ -72,15 +82,7 @@ resource "azurerm_route" "v6_hub_routes" {
     next_hop_type           = "VirtualAppliance" 
     next_hop_in_ip_address  = var.gw_ip_v6
 }
-
-resource "azurerm_route" "v6_default" {
-    name                    = "v6_Default"
-    resource_group_name     = azurerm_resource_group.spoke_rsg.name
-    route_table_name        = azurerm_route_table.this.name
-    address_prefix          = "::/0"
-    next_hop_type           = "VirtualAppliance" 
-    next_hop_in_ip_address  = var.gw_ip_v6
-}
+*/
 
 
 
