@@ -62,7 +62,7 @@ resource "azurerm_route" "v6_default" {
     next_hop_in_ip_address  = var.gw_ip_v6
 }
 
-/*
+
 resource "azurerm_route" "v4_hub_routes" {
   for_each = var.hub_routes_v4
     name                    = each.key
@@ -73,6 +73,7 @@ resource "azurerm_route" "v4_hub_routes" {
     next_hop_in_ip_address  = var.gw_ip_v4
 }
 
+/*
 resource "azurerm_route" "v6_hub_routes" {
   for_each = var.hub_routes_v6
     name                    = each.key
